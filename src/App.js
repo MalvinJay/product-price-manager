@@ -48,7 +48,7 @@ function App() {
       </nav>   
 
       <div className="container mx-auto">
-        <div className="flex justify-content-end w-75 mx-auto py-20">
+        <div className="flex justify-content-end resp-w mx-auto py-20">
           <button className="mx-0" onClick={() => {
             setinfo({});
             setmode("add");
@@ -60,7 +60,7 @@ function App() {
         </div>
 
         {loading ?
-          <div className="w-75 mx-auto mt-10">
+          <div className="resp-w mx-auto mt-10">
             <Skeleton height={40} count={5} />
           </div>
         :

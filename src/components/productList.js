@@ -41,7 +41,7 @@ const ProductList = ({
     };
 
     return (
-        <div className="card w-75 mx-auto mt-10">
+        <div className="card resp-w mx-auto mt-10">
             <table>
                 <thead>
                 <tr>

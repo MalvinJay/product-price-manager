@@ -77,3 +77,11 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.resp-w {
+  width: 100% !important;
+
+  @media (min-width: 425px) {
+    width: 80% !important;
+  }
+}

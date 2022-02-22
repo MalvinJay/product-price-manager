@@ -23,11 +23,15 @@ export const getProducts = (list=[]) => async (dispatch) => {
             if (indexOfReOccur >= 0) {
                 console.log('prices_accumulator[indexOfReOccur]:', prices_accumulator[indexOfReOccur]);
 
-                if (prices_accumulator[indexOfReOccur].price !== _item.price) {
+                // Check if price isn't in the prices_accumulator array and then append a new record price
+                const findPrice = prices_accumulator.find(el => el.price === _item.price);
+
+                if (!findPrice) {
                     prices_accumulator.push(
                         {
                             id: max_id + 1,
-                            ..._item
+                            price: _item.price,
+                            date: _item.date
                         }
                     );
 
