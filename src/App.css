@@ -80,8 +80,10 @@
 
 .resp-w {
   width: 100% !important;
+}
 
-  @media (min-width: 425px) {
+@media (min-width: 425px) {
+  .resp-w {
     width: 80% !important;
   }
-}
+}  
