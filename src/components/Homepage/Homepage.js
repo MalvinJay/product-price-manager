@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 
 // Components
 import 'h8k-components';
-import ProductList from './productList';
-import AddEditProduct from "./AddEditProduct";
+import ProductList from '../ProductList/productList';
+import AddEditProduct from "../AddEditProduct/AddEditProduct";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { NotificationContainer } from 'react-notifications';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from "../redux/Products/product.actions";
+import { getProducts } from "../../redux/Products/product.actions";
 
 const Homepage = () => {
     const dispatch = useDispatch();
@@ -39,7 +39,8 @@ const Homepage = () => {
   return (
     <>
       <div className="container mx-auto">
-        <div className="flex justify-content-end resp-w mx-auto py-20">
+        <div className="flex justify-content-between align-items-center resp-w mx-auto py-20">
+          <h3 className="my-0">Product Manager</h3>
           <button
             className="mx-0"
             onClick={() => {

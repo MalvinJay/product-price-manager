@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import CofirmPopUp from "./CofirmPopUp";
+import CofirmPopUp from "../ConfirmPopUp/CofirmPopUp";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { deleteProduct } from "../redux/Products/product.actions";
+import { deleteProduct } from "../../redux/Products/product.actions";
 
 const ProductList = ({ 
     products=[],
-    show,
     setModal=()=>{}, 
     setinfo=()=>{},
     setmode=()=>{} 

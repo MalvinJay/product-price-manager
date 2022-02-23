@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import PureModal from 'react-pure-modal';
 import 'react-pure-modal/dist/react-pure-modal.min.css';
-import loadsvg from "../assets/images/tail-spin.svg";
+import loadsvg from "../../assets/images/tail-spin.svg";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
  
 import { useDispatch, useSelector } from 'react-redux';
-import { createProduct, updateProduct  } from "../redux/Products/product.actions";
+import { createProduct, updateProduct  } from "../../redux/Products/product.actions";
 
 const AddEditProduct = ({
     mode="add",
