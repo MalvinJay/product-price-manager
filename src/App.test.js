@@ -5,8 +5,12 @@ import store from './redux/store';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-test('renders Add Product button', () => {
-  render(<Provider store={store}><App /></Provider>);
+const MockApp = () => (
+  <Provider store={store}><App /></Provider>
+);
+
+it('renders Add Product button', () => {
+  render(<MockApp />);
   const AddProductButton = screen.getByText(/Add Product/);
   expect(AddProductButton).toBeInTheDocument();
 })

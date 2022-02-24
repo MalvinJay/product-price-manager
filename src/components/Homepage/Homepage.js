@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 
 // Components
 import 'h8k-components';
-import ProductList from '../ProductList/productList';
 import AddEditProduct from "../AddEditProduct/AddEditProduct";
+import ProductList from '../ProductList/productList';
+import ProductSummary from "../Summary/ProductMeta";
+
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { NotificationContainer } from 'react-notifications';
@@ -40,7 +42,7 @@ const Homepage = () => {
     <>
       <div className="container mx-auto">
         <div className="flex justify-content-between align-items-center resp-w mx-auto py-20">
-          <h3 className="my-0">Product Manager</h3>
+          <h3 className="my-0"></h3>
           <button
             className="mx-0"
             onClick={() => {
@@ -58,12 +60,18 @@ const Homepage = () => {
             <Skeleton height={40} count={5} />
           </div>
         ) : (
-          <ProductList
-            products={products}
-            setModal={setshow}
-            setinfo={setinfo}
-            setmode={setmode}
-          />
+          <>
+            <ProductList
+              products={products}
+              setModal={setshow}
+              setinfo={setinfo}
+              setmode={setmode}
+            />
+
+            <ProductSummary 
+              total={products?.length || 0}
+            />
+          </>
         )}
       </div>
 

@@ -30,13 +30,16 @@ const AddEditProduct = ({
 
         // check mode
         if (mode === "add") {
-            console.log('Products from redux:', products);
             // Append the prices array info to the product, setting the id, price and the date value accordingly
-            let lastProductPrices = products[products?.length - 1]?.prices;
+            let lastProductPrices = [];
 
-            pricingData.id = parseInt(products[products?.length - 1]?.id + 1);
+            if (products.length > 0)
+                lastProductPrices = products[products?.length - 1]?.prices;
+
+
+            pricingData.id = products?.length > 0 ? parseInt(products[products?.length - 1]?.id + 1) : 1;
             pricingData.prices = [{
-                id: parseInt(lastProductPrices[lastProductPrices?.length - 1]?.id + 1),
+                id: lastProductPrices.length > 0 ? parseInt(lastProductPrices[lastProductPrices?.length - 1]?.id + 1) : 1,
                 price: parseFloat(price),
                 date: new Date().toISOString(),                
             }];
@@ -118,24 +121,22 @@ const AddEditProduct = ({
             }}
         >
             <form className="">
-                <section className="layout-row align-items-center justify-content-center mb-20">
-                    <input
-                        value={name}
-                        onChange={(e) => setname(e.target.value)}
-                        type="text" 
-                        className="white large outlined" 
-                        placeholder="Name" 
-                    />
-                </section>
-                <section className="layout-row align-items-center justify-content-center">
-                    <input
-                        value={price}
-                        onChange={(e) => setprice(e.target.value)}
-                        type="number"
-                        className="white large outlined"
-                        placeholder="Price"
-                    />
-                </section>
+                <input
+                    value={name}
+                    onChange={(e) => setname(e.target.value)}
+                    type="text" 
+                    className="white large outlined mb-10" 
+                    placeholder="Name" 
+                />
+                {/* <section className="layout-row align-items-center justify-content-center mb-20"></section> */}
+                <input
+                    value={price}
+                    onChange={(e) => setprice(e.target.value)}
+                    type="number"
+                    className="white large outlined mt-10"
+                    placeholder="Price"
+                />
+                {/* <section className="layout-row align-items-center justify-content-center"></section> */}
             </form>
         </PureModal>
 
